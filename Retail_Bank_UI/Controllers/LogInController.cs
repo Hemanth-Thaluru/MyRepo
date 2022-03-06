@@ -30,6 +30,12 @@ namespace Retail_Bank_UI.Controllers
         {
             return View();
         }
+        public IActionResult Loginscreen()
+        {
+            return View();
+        }
+
+
 
         [HttpPost]
         public async Task<IActionResult> Index(LogIn logIn)

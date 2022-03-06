@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Retail_Bank_UI.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class CreateCustomerAccountController : Controller
     {
         // GET: CreateCustomerAccount
@@ -36,7 +36,7 @@ namespace Retail_Bank_UI.Controllers
                     Client client = new Client();
                     CustomerCreationStatus customerCreationStatus = new CustomerCreationStatus();
                     AccountCreationStatus creationStatus = new AccountCreationStatus();
-                    var res1 =  client.APIClient().PostAsJsonAsync("/gateway/Customer/createCustomer", customer).Result;
+                    var res1 =  client.APIClient().PostAsJsonAsync("http://localhost:5004/api/Customer/createCustomer", customer).Result;
                     if(res1.IsSuccessStatusCode)
                     {
                         var customerStats = res1.Content.ReadAsStringAsync().Result;

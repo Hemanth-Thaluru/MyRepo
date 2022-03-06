@@ -17,8 +17,9 @@ namespace Retail_Bank_UI.Controllers
 
     public class CustomerDetailsController : Controller
     {
-        [HttpGet]
+        //[HttpGet]
 
+        [HttpPost]
         public async Task<IActionResult> Index(int customerId)
         {
             Client client = new Client();

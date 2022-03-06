@@ -205,9 +205,9 @@
                     <a onclick="searchCustomer()">Display Customer</a>
 
                     <div style="display:none; position:relative; top:0.5rem; bottom:0.5rem" id="searchbyCust">
-                        <form method="post" asp-route-CustomerId="9" asp-action="GetCustomerAccountDetails">
+                        @*<form method="post" asp-controller="CustomerDetails/Index" asp-action="Index"  >
                             <div class="input-group">
-                                <input type="text" class="form-control" name="CustomerId" placeholder="Search by Customer ID">
+                                <input type="text" class="form-control" name="customerId"  placeholder="Search by Customer ID">
                                 
                                 <div class="input-group-append">
                                     <button type="submit" class="btn btn-secondary">
@@ -215,7 +215,9 @@
                                     </button>
                                 </div>
                             </div>
-                        </form>
+                        </form>*@
+
+
                      
                     </div>
                 </li>
