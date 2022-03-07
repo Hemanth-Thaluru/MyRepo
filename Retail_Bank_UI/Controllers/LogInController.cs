@@ -42,6 +42,8 @@ namespace Retail_Bank_UI.Controllers
         {
             IEnumerable<UserCred> userCreds =await GetAllUserAsync();
 
+            TempData["UserName"] = logIn.Username;
+
             if (logIn.LogInType==UserType.Admin)
             {
                 foreach (var item in userCreds)

@@ -184,44 +184,14 @@
                     <a asp-area="" asp-controller="Admin" asp-action="Index">All Accounts</a>
                 </li>
                 <li>
-                    <a asp-area="" asp-controller="CreateCustomerAccount"  asp-action="Index">Create Account</a>
+                    <a asp-area="" asp-controller="CreateCustomerAccount" asp-action="Index">Create Account</a>
                 </li>
                 <li>
-
-                <li>
-                    <a id="abc" onclick="searchAcc()">Display Account</a>
-                    <div style="display:none; position:relative; top:0.5rem; bottom:0.5rem" id="searchbyAcid">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search by Account ID">
-                            <div class="input-group-append">
-                                <button class="btn btn-secondary" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    <a asp-area="" asp-controller="TransactionView" asp-action="GetStatement">Statement</a>
                 </li>
                 <li>
-                    <a onclick="searchCustomer()">Display Customer</a>
-
-                    <div style="display:none; position:relative; top:0.5rem; bottom:0.5rem" id="searchbyCust">
-                        @*<form method="post" asp-controller="CustomerDetails/Index" asp-action="Index"  >
-                            <div class="input-group">
-                                <input type="text" class="form-control" name="customerId"  placeholder="Search by Customer ID">
-                                
-                                <div class="input-group-append">
-                                    <button type="submit" class="btn btn-secondary">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>*@
-
-
-                     
-                    </div>
+                    <a asp-area="" asp-controller="Admin" asp-action="AllLoans">All Loan Requests</a>
                 </li>
-
                 <li>
                     <a asp-area="" asp-controller="TransactionView" asp-action="Deposit">Deposit</a>
                 </li>
@@ -231,12 +201,7 @@
                 <li>
                     <a asp-area="" asp-controller="TransactionView" asp-action="Transfer">Transfer</a>
                 </li>
-
-
             </ul>
-            
-
-
         </nav>
 
         <!-- Page Content  -->

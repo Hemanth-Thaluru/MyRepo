@@ -5,6 +5,11 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+<div class="font-weight-bolder d-flex bg-transparent border-bottom" style="height:50px">
+    <div class="pt-2  font-italic font-weight-light">Welcome to SRF Bank</div>
+    <div class="p-2  ml-auto" style="color: #2b6dad">Hai @TempData["UserName"]</div>
+</div>
+
 <table style="width:100%" class="table table-bordered table-hover">
     <thead style="background-color: #2b6dad" class="text-white">
         <tr>
@@ -27,7 +32,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.MinBalance)
             </th>
-            <th> go to</th>
+         
         </tr>
     </thead>
     <tbody>
@@ -46,7 +51,7 @@
                 </a>
             </td>
             <td>
-                <a asp-controller="GetCustomerAccountDetails" asp-route-CustomerId="@item.CustomerId">
+                <a asp-controller="CustomerDetails" asp-action="Index" asp-route-CustomerId="@item.CustomerId">
                     @Html.DisplayFor(modelItem => item.CustomerId)
                 </a>
             </td>
@@ -59,11 +64,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.MinBalance)
             </td>
-            <td>
-                <a asp-controller="CreateCustomerAccount" asp-action="index" >
-                   Link here
-                </a>
-            </td>
+        
 
         </tr>
         }

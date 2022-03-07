@@ -98,7 +98,27 @@ namespace Retail_Bank_UI.Controllers
             }
         }
 
+        [HttpGet]
+        public IActionResult GetStatement()
+        {
+            StatementUI sd = new StatementUI();
+            return View(sd);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Statement(StatementUI sd)
+        {
 
+            IEnumerable<Statement> status = null;
+
+            Client client = new Client();
+            var result = await client.APIClient().GetAsync("http://localhost:5000/api/Transaction/getStatement/"+sd.AccountId+"/"+sd.FromDate+"/"+sd.ToDate);
+            if (result.IsSuccessStatusCode)
+            {
+                var data = result.Content.ReadAsStringAsync().Result;
+                status = JsonConvert.DeserializeObject<IEnumerable<Statement>>(data);
+            }
+            return View(status);
+        }
 
 
     }

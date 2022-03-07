@@ -14,6 +14,8 @@ namespace CustomerMicroService
 
         }
         public DbSet<Customer> Customer { get; set; }
+        public DbSet<Loan> Loans { get; set; }
+
        
     }
 }
