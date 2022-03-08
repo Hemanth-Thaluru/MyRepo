@@ -34,7 +34,7 @@ namespace CustomerMicroService.Controllers
             List<Loan> lo= li.FindAll(a => a.CustomerId == customerId);
             var mn = JsonConvert.SerializeObject(lo);
             _log4net.Info("Loan history returned for Account Id: " + customerId);
-            return Ok(mn);
+            return Ok(lo);
         }
 
 
@@ -85,5 +85,23 @@ namespace CustomerMicroService.Controllers
             return Ok(lo);
         }
 
-    }
+        [HttpPost]
+        [Route("CreateLoan")]
+        public async Task<IActionResult> CreateLoan([FromBody] Loan loan)
+        {
+            if (loan.Amount <= 0)
+                return NotFound();
+            try
+            {
+                _context.Loans.Add(loan);
+                _context.SaveChanges();
+                return Ok();
+            }
+            catch(Exception)
+            {
+                return NotFound();
+            }
+        }
+
+        }
 }

@@ -60,7 +60,7 @@ namespace Retail_Bank_UI
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=LogIn}/{action=Index}");
+                    pattern: "{controller=Home}/{action=Index}");
             });
         }
     }

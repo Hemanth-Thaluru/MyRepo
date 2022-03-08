@@ -12,6 +12,10 @@ namespace Retail_Bank_UI.Controllers
     {
         public async Task<IActionResult> Index(int customerId)
         {
+            if(customerId==0)
+            {
+                customerId = CIDAll.cid;
+            }
             Client client = new Client();
             List<Account> accounts = new List<Account>();
             try
@@ -29,6 +33,7 @@ namespace Retail_Bank_UI.Controllers
                 ViewBag.Error = e.Message;
                 return View();
             }
+
         }
     }
 }
