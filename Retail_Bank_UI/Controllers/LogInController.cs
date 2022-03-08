@@ -68,7 +68,7 @@ namespace Retail_Bank_UI.Controllers
             {
                 foreach (var item in userCreds)
                 {
-                    if (item.UserName == logIn.Username && item.Password == logIn.Password && item.CustomerId==logIn.CustomerId)
+                    if (item.UserName == logIn.Username && item.Password == logIn.Password )
                     {
                        var  identity = new ClaimsIdentity(new[] {
                     new Claim(ClaimTypes.Name, logIn.Username),
@@ -78,7 +78,7 @@ namespace Retail_Bank_UI.Controllers
 
                         ViewBag.Msg = "Successfully Logged In";
                         ModelState.Clear();
-                        return RedirectToAction("Index","CustomerDetails",new {customerId= logIn.CustomerId });
+                        return RedirectToAction("Index","CustomerLogin",new {customerId= item.CustomerId });
                        
                     }
                     ViewBag.Msg = "OOPS!!Wrong Cred";

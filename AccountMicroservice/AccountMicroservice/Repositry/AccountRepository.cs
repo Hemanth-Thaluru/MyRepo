@@ -87,8 +87,14 @@ namespace AccountMicroservice.Repositry
             var acc = GetAllAccounts();
             var sav_acc = acc.Find(a => a.CustomerId == customer_id && a.accountType == AccountType.SavingAccount.ToString());
             var cur_acc = acc.Find(a => a.CustomerId == customer_id && a.accountType == AccountType.CurrentAccount.ToString());
-            accounts.Add(sav_acc);
-            accounts.Add(cur_acc);
+            if(sav_acc!=null)
+            {
+                accounts.Add(sav_acc);
+            }
+            if(cur_acc!=null)
+            {
+                accounts.Add(cur_acc);
+            }      
             return accounts;
         }
 
