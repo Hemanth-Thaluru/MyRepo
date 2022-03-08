@@ -136,33 +136,11 @@ namespace AccountMicroservice.Controllers
             {
                 return NotFound(e);
             }
-
-
         }
-        [Route("updateAccount/{AccountId}")]
-        [HttpPut("{AccountId}")]
-        public async Task<IActionResult> UpdateAccount(int AccountId, Account acc)
-        {
-            if (AccountId == 0)
-            {
-                return BadRequest();
-            }
-            var dbAccount = _AccountRepo.GetParticularAccount(AccountId);
-            dbAccount.Balance = acc.Balance;
 
-            _accountMicroserviceDbContext.Entry(dbAccount).State = EntityState.Modified;
-            try
-            {
+      
 
-                await _accountMicroserviceDbContext.SaveChangesAsync();
-                return Ok();
-            }
-            catch (DbUpdateConcurrencyException ex)
-            {
-                return BadRequest(ex);
-            }
-
-        }
+        
 
      
 

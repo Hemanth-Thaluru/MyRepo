@@ -37,6 +37,7 @@ namespace CustomerMicroService.Controllers
             return Ok(mn);
         }
 
+
         [HttpGet("{customerId}")]
         [Route("Accept/{customerId}")]
         public void Accept(int customerId)
@@ -77,9 +78,9 @@ namespace CustomerMicroService.Controllers
         [Route("getAllLoan")]
         public async Task<IActionResult> getAllLoan()
         {
-            var li = _context.Loans.ToList();
+            var li =  _context.Loans.ToList();
             List<Loan> lo = li.FindAll(a => a.Pending == false);
-            var mn = JsonConvert.SerializeObject(lo);
+            
             _log4net.Info("Loan history returned for all accounts " );
             return Ok(lo);
         }
