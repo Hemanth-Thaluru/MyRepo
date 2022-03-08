@@ -37,11 +37,48 @@ namespace CustomerMicroService.Controllers
             return Ok(mn);
         }
 
+        [HttpGet("{customerId}")]
+        [Route("Accept/{customerId}")]
+        public void Accept(int customerId)
+        {
+            if (customerId == 0)
+            {
+                _log4net.Info("Loan history returned for Account Id: " + customerId);
+            }
+
+            var li = _context.Loans.ToList();
+            Loan lo = li.Find(a => a.CustomerId == customerId);
+            
+            _log4net.Info("Loan history returned for Account Id: " + customerId);
+            lo.Pending = true;
+            lo.CurrentStatus = true;
+            _context.SaveChanges();
+        }
+
+        [HttpGet("{customerId}")]
+        [Route("Reject/{customerId}")]
+        public void Reject(int customerId)
+        {
+            if (customerId == 0)
+            {
+                _log4net.Info("Loan history returned for Account Id: " + customerId);
+            }
+
+            var li = _context.Loans.ToList();
+            Loan lo = li.Find(a => a.CustomerId == customerId);
+
+            _log4net.Info("Loan history returned for Account Id: " + customerId);
+            lo.Pending = true;
+            lo.CurrentStatus = false;
+            _context.SaveChanges();
+        }
+
         [HttpGet]
         [Route("getAllLoan")]
         public async Task<IActionResult> getAllLoan()
         {
-            List<Loan> lo = _context.Loans.ToList();
+            var li = _context.Loans.ToList();
+            List<Loan> lo = li.FindAll(a => a.Pending == false);
             var mn = JsonConvert.SerializeObject(lo);
             _log4net.Info("Loan history returned for all accounts " );
             return Ok(lo);

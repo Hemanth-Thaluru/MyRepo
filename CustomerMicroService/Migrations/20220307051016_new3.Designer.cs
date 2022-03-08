@@ -4,14 +4,16 @@ using CustomerMicroService;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CustomerMicroService.Migrations
 {
     [DbContext(typeof(CustomeContext))]
-    partial class CustomeContextModelSnapshot : ModelSnapshot
+    [Migration("20220307051016_new3")]
+    partial class new3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -74,9 +76,6 @@ namespace CustomerMicroService.Migrations
 
                     b.Property<int>("GoldWeight")
                         .HasColumnType("int");
-
-                    b.Property<bool>("Pending")
-                        .HasColumnType("bit");
 
                     b.HasKey("Loan_Id");
 

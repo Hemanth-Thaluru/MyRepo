@@ -34,29 +34,9 @@ namespace Retail_Bank_UI.Controllers
             }
         }
 
-        public async Task<IActionResult> AllLoans()
-        {
-            Client client = new Client();
-            List<Loan> accounts = new List<Loan>();
-            try
-            {
-                var result = await client.APIClient().GetAsync("http://localhost:5004/api/Loan/getAllLoan");
-                if (result.IsSuccessStatusCode)
-                {
-                    var data = result.Content.ReadAsStringAsync().Result;
-                    var allLoans = JsonConvert.DeserializeObject<List<Loan>>(data);
-                    return View(allLoans);
-                }
-                return View();
-            }
-            catch (Exception e)
-            {
-                ViewBag.Error = e.Message;
-                return View();
-            }
+       
 
-            return View();
-        }
+
     }
 
 }
